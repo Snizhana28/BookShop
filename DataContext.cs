@@ -18,6 +18,8 @@ namespace WPF.App3
 
         public DbSet<User> User { get; set; } = default!;
         public DbSet<Book> Book { get; set; } = default!;
+        public DbSet<WriteOfBook> WriteOfBooks { get; set; } = default!;
+        public DbSet<PostponedBook> PostponedBooks { get; set; } = default!;
     }
 
 }

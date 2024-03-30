@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPF.App3.Pages.PostponeScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WPF.App3.Pages"
+        FontFamily="Poppins" FontSize="18" Background="#F5FFFF"
+        mc:Ignorable="d"
+        Title="BookShop" Height="200" Width="300" WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True" Icon="/Assets/books.png">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Enter your User ID:" Grid.Row="0"/>
+        <TextBox x:Name="txtUserId" Grid.Row="1" Margin="0,5,0,5"/>
+        <Button Content="Ok" Grid.Row="2" Margin="0,10,0,0" Click="Ok_Click"
+                Background="#BBDEFB" BorderBrush="#90CAF9"
+                materialDesign:ButtonAssist.CornerRadius="5" Height="40" Width="200"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignPaperButton}"/>
+
+    </Grid>
+</Window>

@@ -50,26 +50,29 @@
                     HorizontalAlignment="Stretch" Margin="10"
                     materialDesign:ButtonAssist.CornerRadius="5"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignPaperButton}"/>
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="SellBook_Click"/>
             <Button x:Name="b_writeOfBook" Height="40" Width="200" Content="Write of book" 
                     Background="#BBDEFB" BorderBrush="#90CAF9"
                     HorizontalAlignment="Stretch" Margin="10" 
                     materialDesign:ButtonAssist.CornerRadius="5"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignPaperButton}"/>
-            <Button x:Name="b_campaignBook" Height="40" Width="200" Content="Put on sale ook" Grid.Row="5"
-                    Background="#BBDEFB" BorderBrush="#90CAF9"
-                    HorizontalAlignment="Stretch" Margin="10"
-                    materialDesign:ButtonAssist.CornerRadius="5"
-                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignPaperButton}"/>
-            <Button x:Name="b_putBookAside" Height="40" Width="200" Content="Postpane book" Grid.Row="6"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="WriteOfBook_Click"/>
+            <Button x:Name="b_PutOnSaleBook" Height="40" Width="200" Content="Put on sale book" Grid.Row="5"
                     Background="#BBDEFB" BorderBrush="#90CAF9"
                     HorizontalAlignment="Stretch" Margin="10"
                     materialDesign:ButtonAssist.CornerRadius="5"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignPaperButton}"
-                    />
+                    Click="PutOnSaleBook_Click"/>
+            <Button x:Name="b_PostpaneBook" Height="40" Width="200" Content="Postpane book" Grid.Row="6"
+                    Background="#BBDEFB" BorderBrush="#90CAF9"
+                    HorizontalAlignment="Stretch" Margin="10"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="PostponeBook_Click"/>
         </StackPanel>
         <TextBox x:Name="tb_search" Grid.Column="1" Grid.Row="0" Width="300"
                 VerticalAlignment="Top"

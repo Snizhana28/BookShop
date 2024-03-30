@@ -97,20 +97,144 @@ namespace WPF.App3.Pages
                 MessageBox.Show("Please select at least one item to edit.");
             }
         }
+        private void SellBook_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItems = dataGrid.SelectedItems;
+            if (selectedItems.Count > 0)
+            {
+                List<int> selectedIds = new List<int>();
 
+                foreach (var selectedItem in selectedItems)
+                {
+                    if (selectedItem is Book yourObject)
+                    {
+                        int id = yourObject.Id;
+                        selectedIds.Add(id); 
+                    }
+                }
 
+                foreach (var id in selectedIds)
+                {
+                    Book item = _dataContext.Set<Book>().Find(id) ??
+                    throw new ArgumentNullException();
 
+                    _dataContext.Set<Book>().Remove(item);
+                    _dataContext.SaveChanges();
+                }
+                MessageBox.Show("Book sold successfully!");
+                dataGrid.ItemsSource = _dataContext.Book.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one item to sell.");
+            }
 
+        }
 
+        private void WriteOfBook_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItems = dataGrid.SelectedItems;
+            if (selectedItems.Count > 0)
+            {
+                try
+                {
+                    foreach (var selectedItem in selectedItems)
+                    {
+                        if (selectedItem is Book yourObject)
+                        {
+                            WriteOfBook writtenOffBook = new WriteOfBook
+                            {
+                                BookId = yourObject.Id,
+                            };
 
+                            _dataContext.WriteOfBooks.Add(writtenOffBook);
+                        }
+                    }
 
+                    _dataContext.SaveChanges();
+                    MessageBox.Show("Book(s) have been written off successfully!");
+                    dataGrid.ItemsSource = _dataContext.Book.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while writing off the book(s): {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one item to write off.");
+            }
+        }
+        private void PutOnSaleBook_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItems = dataGrid.SelectedItems;
+            if (selectedItems.Count > 0)
+            {
+                try
+                {
+                    foreach (var selectedItem in selectedItems)
+                    {
+                        if (selectedItem is Book yourObject)
+                        {
+                            yourObject.SellingPrice = (int)(yourObject.SellingPrice * 0.9);
+                        }
+                    }
 
+                    _dataContext.SaveChanges();
+                    MessageBox.Show("Book(s) have been put on sale successfully!");
+                    dataGrid.ItemsSource = _dataContext.Book.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while putting the book(s) on sale: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one item to put on sale.");
+            }
+        }
+        private void PostponeBook_Click(object sender, RoutedEventArgs e)
+        {
+            var userIdDialog = new PostponeScreen();
+            bool? result = userIdDialog.ShowDialog();
 
+            if (result == true)
+            {
+                int userId = userIdDialog.UserId;
+                var selectedBooks = dataGrid.SelectedItems.Cast<Book>().ToList();
 
+                if (selectedBooks.Any())
+                {
+                    try
+                    {
+                        foreach (var book in selectedBooks)
+                        {
+                            PostponedBook postponedBook = new PostponedBook
+                            {
+                                BookId = book.Id,
+                                UserId = userId,
+                                PostponedDate = DateTime.Now
+                            };
 
+                            _dataContext.PostponedBooks.Add(postponedBook);
+                        }
 
-
-
+                        _dataContext.SaveChanges();
+                        MessageBox.Show($"Selected books have been postponed for user with ID {userId}.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        dataGrid.ItemsSource = _dataContext.Book.ToList();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select at least one book to postpone.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
 
         private void NewReleases_Click(object sender, RoutedEventArgs e)
         {
@@ -134,9 +258,9 @@ namespace WPF.App3.Pages
         private void PopularBook_Click(object sender, RoutedEventArgs e)
         {
             var popularBooks = _dataContext.Book
-                                   .OrderByDescending(b => b.RatingBook)
-                                   .Take(5) 
-                                   .ToList();
+                          .Where(a => a.RatingBook >= 5)
+                          .OrderByDescending(a => a.RatingBook)
+                          .ToList();
 
             StringBuilder message = new StringBuilder();
             message.AppendLine("Most Popular Books by Rating:");
@@ -151,9 +275,9 @@ namespace WPF.App3.Pages
         private void PopularAuthor_Click(object sender, RoutedEventArgs e)
         {
             var popularAuthors = _dataContext.Book
-                                  .OrderByDescending(a => a.RatingAuthor)
-                                  .Take(5) 
-                                  .ToList();
+                          .Where(a => a.RatingAuthor >= 5)
+                          .OrderByDescending(a => a.RatingAuthor)
+                          .ToList();
 
             StringBuilder message = new StringBuilder();
             message.AppendLine("Best Authors by Average Rating:");
