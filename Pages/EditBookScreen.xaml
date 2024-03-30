@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="WPF.App3.Pages.EditBookScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF.App3.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             FontFamily="Poppins"  FontWeight="DemiBold" FontSize="18" Background="#F5FFFF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Assets/books.png" Height="60" Width="60" Stretch="Uniform" HorizontalAlignment="Left" Margin="35 0 0 0"/>
+        <TextBlock Text="Book Shop" FontSize="22" FontWeight="Bold" Margin="100 0 0 0" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="0"/>
+        <TextBlock Text="Edding book" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0"  FontSize="24" FontWeight="Normal" Margin="150 10 10 10"/>
+        <TextBox x:Name="tb_title" Grid.Column="1" Grid.Row="1" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Title"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_author" Grid.Column="1" Grid.Row="2" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Author"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_publisher" Grid.Column="1" Grid.Row="3" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Publisher"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_pagesCount" Grid.Column="1" Grid.Row="4" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Pages count"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_genre" Grid.Column="2" Grid.Row="1" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Genre"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_year" Grid.Column="2" Grid.Row="2" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Year"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_costPrice" Grid.Column="2" Grid.Row="3" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Cost Price"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_sellingPrice" Grid.Column="2" Grid.Row="4" Width="300" VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Selling Price"
+            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+            Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <Label Content="Is continuation" Grid.Row="6" Grid.Column="1"
+       HorizontalAlignment="Right" VerticalAlignment="Center" Margin="60 0"/>
+        <CheckBox x:Name="cb_IsContinuation" Grid.Row="6" Grid.Column="1" Background="#7B54BF" BorderBrush="#7B54BF"
+        HorizontalAlignment="left" VerticalAlignment="Center" Margin="200 0"/>
+        <TextBox x:Name="tb_ratingBook" Grid.Column="1" Grid.Row="5" Width="300" VerticalAlignment="Top"
+        materialDesign:HintAssist.Hint="Rating Book"
+        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+        Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <TextBox x:Name="tb_ratingAuthor" Grid.Column="2" Grid.Row="5" Width="300" VerticalAlignment="Top"
+        materialDesign:HintAssist.Hint="Rating Author"
+        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+        Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <!--<TextBox x:Name="tb_dateAdd" Grid.Column="1" Grid.Row="6" Width="300" VerticalAlignment="Top"
+        materialDesign:HintAssist.Hint="Date Added"
+        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}" MaxLength="40"
+        Style="{StaticResource MaterialDesignFilledTextBox}"/>-->
+
+        <Button x:Name="b_editBook" Content="Edit book" Grid.Row="8" Grid.Column="2" Width="200" Height="40" VerticalAlignment="Center"
+            Background="#BBDEFB" BorderBrush="#90CAF9"
+            materialDesign:ButtonAssist.CornerRadius="5"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Click="EditBook_Click"/>
+        <Button Grid.Column="3" Grid.Row="0" Content="Back" Background="#BBDEFB" BorderBrush="#90CAF9"  Width="90" Height="30" FontSize="13" 
+    HorizontalAlignment="Right"  Margin="10 10 35 10" 
+    materialDesign:ButtonAssist.CornerRadius="5"
+    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+    Style="{StaticResource MaterialDesignRaisedButton}"
+            Click="Button_Click"/>
+    </Grid>
+</UserControl>
