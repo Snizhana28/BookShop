@@ -37,7 +37,7 @@ namespace WPF.App3.Pages
                     }
                     else if (user.Role == "user")
                     {
-                        NavigatorObject.Switch(new MainUserScreen());
+                        NavigatorObject.Switch(new MainUserScreen(_dataContext));
                     }
                 }
                 else if (tbLogin.Text == "" || tbPassword.Password == "")

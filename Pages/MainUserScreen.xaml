@@ -24,24 +24,13 @@
         <TextBlock Text="Book Shop" FontSize="22" FontWeight="Bold" Margin="100 0 0 0" VerticalAlignment="Center"/>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="10">
-            <Button x:Name="b_addBook" Height="40" Width="200" Content="Add book"
-                Background="#BBDEFB" BorderBrush="#90CAF9"
-                HorizontalAlignment="Stretch" Margin="10" 
-                materialDesign:ButtonAssist.CornerRadius="5"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignPaperButton}"/>
-            <Button x:Name="b_delBook" Height="40" Width="200" Content="Delete book"
-                Background="#BBDEFB" BorderBrush="#90CAF9"
-                HorizontalAlignment="Stretch" Margin="10" 
-                materialDesign:ButtonAssist.CornerRadius="5"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignPaperButton}"/>
-            <Button x:Name="b_editBook" Height="40" Width="200" Content="Edit book" 
-                Background="#BBDEFB" BorderBrush="#90CAF9"
-                HorizontalAlignment="Stretch" Margin="10"
-                materialDesign:ButtonAssist.CornerRadius="5"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource MaterialDesignPaperButton}"/>
+            <Button x:Name="b_BuyBook" Height="40" Width="200" Content="Buy book"
+                    Background="#BBDEFB" BorderBrush="#90CAF9"
+                    HorizontalAlignment="Stretch" Margin="10" 
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="BuyBook_Click"/>
         </StackPanel>
 
         <TextBox x:Name="tb_search" Grid.Column="1" Grid.Row="0" Width="300"
@@ -51,12 +40,13 @@
                  MaxLength="40"
                  Style="{StaticResource MaterialDesignFilledTextBox}"/>
         <Button x:Name="b_search" Content="Search" Grid.Column="1" 
-            Width="70" Height="35"   HorizontalAlignment="Right"
-            Background="#BBDEFB" BorderBrush="#90CAF9" FontSize="13"
-            Margin="10 10 50 10"
-            materialDesign:ButtonAssist.CornerRadius="5"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-            Style="{StaticResource MaterialDesignRaisedButton}"/>
+                Width="70" Height="35"   HorizontalAlignment="Right"
+                Background="#BBDEFB" BorderBrush="#90CAF9" FontSize="13"
+                Margin="10 10 50 10"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                Click="Search_Click"/>
 
         <DataGrid x:Name="dataGrid" Grid.Column="1" Grid.Row="1">
 
@@ -65,23 +55,26 @@
 
         <StackPanel Grid.Column="2" Grid.Row="1" Margin="10">
             <Button x:Name="b_ListReleases" Height="40" Width="200" Content="New releases"
-     Background="#BBDEFB" BorderBrush="#90CAF9"
-     HorizontalAlignment="Stretch" Margin="10" 
-     materialDesign:ButtonAssist.CornerRadius="5"
-     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-     Style="{StaticResource MaterialDesignPaperButton}"/>
+                    Background="#BBDEFB" BorderBrush="#90CAF9"
+                    HorizontalAlignment="Stretch" Margin="10" 
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="NewReleases_Click"/>
             <Button x:Name="b_ListPopularBook" Height="40" Width="200" Content="Popular books"
-     Background="#BBDEFB" BorderBrush="#90CAF9"
-     HorizontalAlignment="Stretch" Margin="10" 
-     materialDesign:ButtonAssist.CornerRadius="5"
-     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-     Style="{StaticResource MaterialDesignPaperButton}"/>
+                    Background="#BBDEFB" BorderBrush="#90CAF9"
+                    HorizontalAlignment="Stretch" Margin="10" 
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="PopularBook_Click"/>
             <Button x:Name="b_ListPopularAuthors" Height="40" Width="200" Content="Popular authors" 
-     Background="#BBDEFB" BorderBrush="#90CAF9"
-     HorizontalAlignment="Stretch" Margin="10"
-     materialDesign:ButtonAssist.CornerRadius="5"
-     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-     Style="{StaticResource MaterialDesignPaperButton}"/>
+                    Background="#BBDEFB" BorderBrush="#90CAF9"
+                    HorizontalAlignment="Stretch" Margin="10"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperButton}"
+                    Click="PopularAuthor_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

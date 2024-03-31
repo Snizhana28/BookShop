@@ -27,71 +27,72 @@ namespace WPF.App3.Pages
         {
             InitializeComponent();
             _dataContext = dataContext;
-            Book book1 = new Book
-            {
-                Title = "The Lord of the Rings",
-                Author = "J.R.R. Tolkien",
-                Publisher = "George Allen & Unwin",
-                PageCount = 1009,
-                Genre = "Fantasy",
-                Year = 1954,
-                CostPrice = 15,
-                SellingPrice = 30,
-                IsContinuation = true,
-                RatingBook = 4,
-                RatingAuthor = 4,
-                DateAdd = DateTime.Now
-            };
-            Book book2 = new Book
-            {
-                Title = "The Hobbit",
-                Author = "J.R.R. Tolkien",
-                Publisher = "George Allen & Unwin",
-                PageCount = 310,
-                Genre = "Fantasy",
-                Year = 1937,
-                CostPrice = 8,
-                SellingPrice = 18,
-                IsContinuation = true,
-                RatingBook = 8,
-                RatingAuthor = 9,
-                DateAdd = DateTime.Now
-            };
-            Book book3 = new Book
-            {
-                Title = "Brave New World",
-                Author = "Aldous Huxley",
-                Publisher = "Chatto & Windus",
-                PageCount = 311,
-                Genre = "Dystopian Fiction",
-                Year = 1932,
-                CostPrice = 10,
-                SellingPrice = 21,
-                IsContinuation = false,
-                RatingBook = 8,
-                RatingAuthor = 8,
-                DateAdd = DateTime.Now
-            };
-            Book book4 = new Book
-            {
-                Title = "To the Lighthouse",
-                Author = "Virginia Woolf",
-                Publisher = "Hogarth Press",
-                PageCount = 209,
-                Genre = "Modernist Literature",
-                Year = 1927,
-                CostPrice = 13,
-                SellingPrice = 28,
-                IsContinuation = false,
-                RatingBook = 10,
-                RatingAuthor = 5,
-                DateAdd = DateTime.Now
-            };
-            _dataContext.Book.Add(book1);
-            _dataContext.Book.Add(book2);
-            _dataContext.Book.Add(book3);
-            _dataContext.Book.Add(book4);
-            _dataContext.SaveChanges();
+
+            //Book book1 = new Book
+            //{
+            //    Title = "The Lord of the Rings",
+            //    Author = "J.R.R. Tolkien",
+            //    Publisher = "George Allen & Unwin",
+            //    PageCount = 1009,
+            //    Genre = "Fantasy",
+            //    Year = 1954,
+            //    CostPrice = 15,
+            //    SellingPrice = 30,
+            //    IsContinuation = true,
+            //    RatingBook = 4,
+            //    RatingAuthor = 4,
+            //    DateAdd = DateTime.Now
+            //};
+            //Book book2 = new Book
+            //{
+            //    Title = "The Hobbit",
+            //    Author = "J.R.R. Tolkien",
+            //    Publisher = "George Allen & Unwin",
+            //    PageCount = 310,
+            //    Genre = "Fantasy",
+            //    Year = 1937,
+            //    CostPrice = 8,
+            //    SellingPrice = 18,
+            //    IsContinuation = true,
+            //    RatingBook = 8,
+            //    RatingAuthor = 9,
+            //    DateAdd = DateTime.Now
+            //};
+            //Book book3 = new Book
+            //{
+            //    Title = "Brave New World",
+            //    Author = "Aldous Huxley",
+            //    Publisher = "Chatto & Windus",
+            //    PageCount = 311,
+            //    Genre = "Dystopian Fiction",
+            //    Year = 1932,
+            //    CostPrice = 10,
+            //    SellingPrice = 21,
+            //    IsContinuation = false,
+            //    RatingBook = 8,
+            //    RatingAuthor = 8,
+            //    DateAdd = DateTime.Now
+            //};
+            //Book book4 = new Book
+            //{
+            //    Title = "To the Lighthouse",
+            //    Author = "Virginia Woolf",
+            //    Publisher = "Hogarth Press",
+            //    PageCount = 209,
+            //    Genre = "Modernist Literature",
+            //    Year = 1927,
+            //    CostPrice = 13,
+            //    SellingPrice = 28,
+            //    IsContinuation = false,
+            //    RatingBook = 10,
+            //    RatingAuthor = 5,
+            //    DateAdd = DateTime.Now
+            //};
+            //_dataContext.Book.Add(book1);
+            //_dataContext.Book.Add(book2);
+            //_dataContext.Book.Add(book3);
+            //_dataContext.Book.Add(book4);
+            //_dataContext.SaveChanges();
         }
         private void AddBook_Click(object sender, System.Windows.RoutedEventArgs e)
         {

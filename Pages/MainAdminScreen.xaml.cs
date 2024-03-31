@@ -23,7 +23,6 @@ namespace WPF.App3.Pages
     public partial class MainAdminScreen : UserControl
     {
         private readonly DataContext _dataContext;
-
         public MainAdminScreen(DataContext dataContext)
         {
             InitializeComponent();
@@ -150,7 +149,6 @@ namespace WPF.App3.Pages
                             _dataContext.WriteOfBooks.Add(writtenOffBook);
                         }
                     }
-
                     _dataContext.SaveChanges();
                     MessageBox.Show("Book(s) have been written off successfully!");
                     dataGrid.ItemsSource = _dataContext.Book.ToList();
